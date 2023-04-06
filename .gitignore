@@ -1,0 +1,12 @@
+# NuGet Packages Directory
+packages/
+
+# NUnit Specific
+TestResult.xml
+lib
+test-results
+
+# Build results
+build/
+[Bb]in/
+[Oo]bj/

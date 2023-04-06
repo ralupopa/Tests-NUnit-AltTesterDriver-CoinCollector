@@ -4,7 +4,7 @@
 2. Have a game [instrumented with AltTester Unity SDK](https://alttester.com/docs/sdk/pages/get-started.html#instrument-your-game-with-alttester-unity-sdk)
 3. Have [AltTester Desktop app](https://alttester.com/alttester/) installed (to be able to inspect game)
 
-# Tests created with NUnit & AltTester-Driver for game developed in Unity (CoinCollector)
+# Tests created with NUnit & AltTester-Driver for a game developed w/ Unity (CoinCollector)
 
 This repository is a test project that uses NUnit as the test library. It was generated using following command (as suggested in [documentation](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-nunit#creating-the-test-project))
 
