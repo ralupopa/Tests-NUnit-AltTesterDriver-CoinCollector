@@ -1,5 +1,3 @@
-using NUnit.Framework;
-using Altom.AltDriver;
 
 public class HelperMethods: BaseTest
 {
@@ -7,10 +5,10 @@ public class HelperMethods: BaseTest
     {
     }
     public AltObject TimeValueText { get => BaseTest.altDriver.WaitForObject(By.NAME, "TimeValueText"); }
-    public static void AssertCoinIsCollected()
+    public AltObject CoinValueText { get => BaseTest.altDriver.WaitForObject(By.NAME,"CoinValueText"); }
+    public void AssertCoinIsCollected()
     {
-        var coinValue = BaseTest.altDriver.FindObject(By.PATH,"//GameController/GameView/Coin/CoinValueText");
-        Assert.AreEqual("1", coinValue.GetText());
+        Assert.AreEqual("1", CoinValueText.GetText());
     }
 
     public int GetCurrentTime() 

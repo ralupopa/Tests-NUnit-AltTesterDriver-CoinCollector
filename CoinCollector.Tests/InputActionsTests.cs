@@ -1,14 +1,13 @@
-using NUnit.Framework;
-using Altom.AltDriver;
-
 namespace CoinCollector.Tests;
 public class InputActionsTests: BaseTest
 {
-  // Before any test it connects with the socket
+    HelperMethods helperMethods;
+    // Before any test it connects with the socket
     [OneTimeSetUp]
     public void SetUp()
     {
         altDriver = new AltDriver();
+        helperMethods = new HelperMethods(altDriver);
     }
 
     // At the end of the test closes the connection with the socket
@@ -30,7 +29,7 @@ public class InputActionsTests: BaseTest
 
         // verify that the coin was collected
         Thread.Sleep(500);
-        HelperMethods.AssertCoinIsCollected();
+        helperMethods.AssertCoinIsCollected();
     }
     
     // click object
@@ -46,7 +45,7 @@ public class InputActionsTests: BaseTest
 
         // verify that the coin was collected
         Thread.Sleep(500);
-        HelperMethods.AssertCoinIsCollected();
+        helperMethods.AssertCoinIsCollected();
     }
     
     // tap object
@@ -62,7 +61,7 @@ public class InputActionsTests: BaseTest
 
         // verify that the coin was collected
         Thread.Sleep(500);
-        HelperMethods.AssertCoinIsCollected();
+        helperMethods.AssertCoinIsCollected();
     }
 
     // swipe object
@@ -78,7 +77,7 @@ public class InputActionsTests: BaseTest
         
         // verify that the coin was collected
         Thread.Sleep(500);
-        HelperMethods.AssertCoinIsCollected();
+        helperMethods.AssertCoinIsCollected();
     }
 
     // key down + key up
@@ -104,7 +103,7 @@ public class InputActionsTests: BaseTest
 
         // verify that the coin was collected
         Thread.Sleep(500);
-        HelperMethods.AssertCoinIsCollected();
+        helperMethods.AssertCoinIsCollected();
     }
 
     // key down + key up + press key
@@ -128,7 +127,7 @@ public class InputActionsTests: BaseTest
         
         // verify that the coin was collected
         Thread.Sleep(500);
-        HelperMethods.AssertCoinIsCollected();
+        helperMethods.AssertCoinIsCollected();
     }
     
     // begin touch + end touch
@@ -146,7 +145,7 @@ public class InputActionsTests: BaseTest
 
         // verify that the coin was collected
         Thread.Sleep(500);
-        HelperMethods.AssertCoinIsCollected();
+        helperMethods.AssertCoinIsCollected();
     }
 
     [Test]
