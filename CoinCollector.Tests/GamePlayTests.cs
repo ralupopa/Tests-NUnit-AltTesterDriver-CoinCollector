@@ -41,4 +41,29 @@ public class GamePlayTests: BaseTest
 
     helperMethods.SetCurrentTime();
   }
+
+  [Test]
+  public void TestPlayerChangesPosition()
+  {
+    var player = helperMethods.Player;
+    AltVector3 playerInitialPostion = player.getWorldPosition();
+
+    helperMethods.MovePlayerToPosition(player, helperMethods.SpawnPointSecond);
+
+    // can use UpdateObject() in sdk 1.8.2
+    //Assert.AreNotEqual(playerInitialPostion, player.UpdateObject().GetWorldPosition());
+    Assert.AreNotEqual(playerInitialPostion, helperMethods.Player.getWorldPosition());
+
+  }
+
+  [Test]
+  public void TestCanSetGameTimeScaleToBeSlow()
+  {
+    helperMethods.ChangeTimeScale(0.1f);
+    var timeValue = helperMethods.GetCurrentTime();
+    helperMethods.Player.Click();
+    Thread.Sleep(3000);
+    var timeValueAfter = helperMethods.GetCurrentTime();
+    Assert.AreEqual(timeValue, timeValueAfter);
+  }
 }

@@ -15,6 +15,7 @@ public class HelperMethods: BaseTest
     public AltObject Hill { get => altDriver.WaitForObject(By.NAME, "Hill"); }
     public AltObject CoinSpawner { get => altDriver.WaitForObject(By.NAME, "CoinSpawner"); }
     public AltObject SpawnPoint { get => altDriver.WaitForObject(By.NAME, "SpawnPoint"); }
+    public AltObject SpawnPointSecond { get => altDriver.WaitForObject(By.NAME, "SpawnPoint (2)"); }
 
     public bool IsDisplayed()
     {
@@ -38,11 +39,32 @@ public class HelperMethods: BaseTest
         if (TimeValueText != null)
         {
             TimeValueText.SetComponentProperty("UnityEngine.UI.Text", "text", 100, "UnityEngine.UI");
+            //TimeValueText.SetText("100", true);
+            //TimeValueText.SetComponentProperty("UnityEngine.UI.Text", "m_Text", 100, "UnityEngine.UI");
+
+            //altDriver.SetDelayAfterCommand(5);
+            //Console.WriteLine(altDriver.GetDelayAfterCommand());
             Console.WriteLine(GetCurrentTime());
         }
         else
         {
             Console.WriteLine("Could not set Time Value Component");
         }
+    }
+
+    public void MovePlayerToPosition(AltObject playerPosition, AltObject coinPosition)
+    {
+        altDriver.KeyDown(AltKeyCode.LeftArrow);
+        while(playerPosition.worldX - 3 > coinPosition.worldX) {
+            playerPosition = Player;
+        }
+        altDriver.KeyUp(AltKeyCode.LeftArrow);
+    }
+
+    public void ChangeTimeScale(float value)
+    {
+        altDriver.SetTimeScale(value);
+        var timeScaleFromGame = altDriver.GetTimeScale();
+        Assert.AreEqual(value, timeScaleFromGame);
     }
 }
