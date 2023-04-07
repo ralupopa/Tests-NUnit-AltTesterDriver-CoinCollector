@@ -66,6 +66,7 @@ public class GamePlayTests: BaseTest
       helperMethods.Player.Click();
       Thread.Sleep(2000);
       var timeValueAfter = helperMethods.GetCurrentTime();
+      // toDo: fix this
       Assert.That(timeValue, Is.EqualTo(timeValueAfter));
       helperMethods.ChangeTimeScale(1f);
     });
