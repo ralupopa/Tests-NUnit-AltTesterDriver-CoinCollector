@@ -52,7 +52,7 @@ public class GamePlayTests: BaseTest
 
     // can use UpdateObject() in sdk 1.8.2
     //Assert.AreNotEqual(playerInitialPostion, player.UpdateObject().GetWorldPosition());
-    Assert.AreNotEqual(playerInitialPostion, helperMethods.Player.getWorldPosition());
+    Assert.That(playerInitialPostion, Is.Not.EqualTo(helperMethods.Player.getWorldPosition()));
 
   }
 
@@ -64,6 +64,6 @@ public class GamePlayTests: BaseTest
     helperMethods.Player.Click();
     Thread.Sleep(3000);
     var timeValueAfter = helperMethods.GetCurrentTime();
-    Assert.AreEqual(timeValue, timeValueAfter);
+    Assert.That(timeValue, Is.EqualTo(timeValueAfter));
   }
 }

@@ -26,7 +26,7 @@ public class HelperMethods: BaseTest
     }
     public void AssertCoinIsCollected()
     {
-        Assert.AreEqual("1", CoinValueText.GetText());
+        Assert.That(CoinValueText.GetText(), Is.EqualTo("1"));
     }
 
     public int GetCurrentTime() 
@@ -65,6 +65,6 @@ public class HelperMethods: BaseTest
     {
         altDriver.SetTimeScale(value);
         var timeScaleFromGame = altDriver.GetTimeScale();
-        Assert.AreEqual(value, timeScaleFromGame);
+        Assert.That(value, Is.EqualTo(timeScaleFromGame));
     }
 }
