@@ -17,20 +17,20 @@ public class GamePlayTests: BaseTest
     altDriver.Stop();
   }
 
-  [Test]
+  [Test, Order(1)]
   public void TestGamePlayDisplayedCorrectly()
   {
     Assert.True(helperMethods.IsDisplayed());
   }
 
-  [Test]
+  [Test, Order(2)]
   public void TestTimeLeftToPlayIsDisplayed()
   {
     var timeValue = helperMethods.GetCurrentTime();
     Console.WriteLine("Value of time in seconds: " + timeValue);
   }
 
-  [Test]
+  [Test, Order(3)]
   public void TestToIncreaseTimeLeftToPlay()
   {
     
@@ -42,7 +42,7 @@ public class GamePlayTests: BaseTest
     helperMethods.SetCurrentTime();
   }
 
-  [Test]
+  [Test, Order(4)]
   public void TestPlayerChangesPosition()
   {
     var player = helperMethods.Player;
@@ -56,14 +56,18 @@ public class GamePlayTests: BaseTest
 
   }
 
-  [Test]
+  [Test, Order(5)]
   public void TestCanSetGameTimeScaleToBeSlow()
   {
-    helperMethods.ChangeTimeScale(0.1f);
-    var timeValue = helperMethods.GetCurrentTime();
-    helperMethods.Player.Click();
-    Thread.Sleep(3000);
-    var timeValueAfter = helperMethods.GetCurrentTime();
-    Assert.That(timeValue, Is.EqualTo(timeValueAfter));
+    Assert.Multiple(() =>
+    {
+      helperMethods.ChangeTimeScale(0.1f);
+      var timeValue = helperMethods.GetCurrentTime();
+      helperMethods.Player.Click();
+      Thread.Sleep(2000);
+      var timeValueAfter = helperMethods.GetCurrentTime();
+      Assert.That(timeValue, Is.EqualTo(timeValueAfter));
+      helperMethods.ChangeTimeScale(1f);
+    });
   }
 }
