@@ -71,4 +71,10 @@ public class GamePlayTests: BaseTest
       helperMethods.ChangeTimeScale(1f);
     });
   }
+
+  [Test, Order(6)]
+  public void TestToIncreaseCoinsNumber()
+  {
+    helperMethods.SetCoinsNumber(99);
+  }
 }

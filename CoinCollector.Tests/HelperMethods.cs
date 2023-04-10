@@ -36,20 +36,28 @@ public class HelperMethods: BaseTest
 
     public void SetCurrentTime()
     {
-        if (TimeValueText != null)
-        {
-            TimeValueText.SetComponentProperty("UnityEngine.UI.Text", "text", 100, "UnityEngine.UI");
-            //TimeValueText.SetText("100", true);
-            //TimeValueText.SetComponentProperty("UnityEngine.UI.Text", "m_Text", 100, "UnityEngine.UI");
+        Assert.NotNull(TimeValueText);
+        var valueTime = GetCurrentTime();
+        Console.WriteLine("Get time value Before: " + valueTime);
 
-            //altDriver.SetDelayAfterCommand(5);
-            //Console.WriteLine(altDriver.GetDelayAfterCommand());
-            Console.WriteLine(GetCurrentTime());
-        }
-        else
-        {
-            Console.WriteLine("Could not set Time Value Component");
-        }
+        int valueToSet = 99;
+        TimeValueText.SetComponentProperty("UnityEngine.UI.Text", "text", valueToSet, "UnityEngine.UI");
+
+        valueTime = GetCurrentTime();
+        Console.WriteLine("Get time value After: " + valueTime);
+    }
+
+    public void SetCoinsNumber(int valueToSet)
+    {
+        Assert.NotNull(CoinValueText);
+        var valueCoins = CoinValueText.GetComponentProperty<int>("UnityEngine.UI.Text", "text", "UnityEngine.UI");
+        Console.WriteLine("Get coins value Before: " + valueCoins);
+
+        CoinValueText.SetComponentProperty("UnityEngine.UI.Text", "text", valueToSet, "UnityEngine.UI");
+
+        valueCoins = CoinValueText.GetComponentProperty<int>("UnityEngine.UI.Text", "text", "UnityEngine.UI");
+        Console.WriteLine("Get coins value After: " + valueCoins);
+        Assert.That(valueCoins, Is.EqualTo(valueToSet));
     }
 
     public void MovePlayerToPosition(AltObject playerPosition, AltObject coinPosition)
