@@ -47,6 +47,21 @@ public class HelperMethods: BaseTest
         Console.WriteLine("Get time value After: " + valueTime);
     }
 
+    public void SetTimeCallComponentMethod()
+    {
+        Assert.NotNull(TimeValueText);
+        var valueTime = GetCurrentTime();
+        Console.WriteLine("Get time value Before: " + valueTime);
+
+        string[] parameters = new[] {"60"};
+        TimeValueText.CallComponentMethod<string>("UnityEngine.UI.Text", "set_text", "UnityEngine.UI", parameters);
+        var dataSet = TimeValueText.CallComponentMethod<Int32>("UnityEngine.UI.Text", "get_text", "UnityEngine.UI", new object[] { });
+        Console.WriteLine(dataSet);
+        Thread.Sleep(2000);
+        valueTime = GetCurrentTime();
+        Console.WriteLine("Get time value After: " + valueTime);
+    }
+
     public void SetCoinsNumber(int valueToSet)
     {
         Assert.NotNull(CoinValueText);

@@ -77,4 +77,10 @@ public class GamePlayTests: BaseTest
   {
     helperMethods.SetCoinsNumber(99);
   }
+
+  [Test, Order(7)]
+  public void TestCallComponentTime()
+  {
+    helperMethods.SetTimeCallComponentMethod();
+  }
 }
