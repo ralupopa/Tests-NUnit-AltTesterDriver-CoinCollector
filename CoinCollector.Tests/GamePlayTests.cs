@@ -83,4 +83,10 @@ public class GamePlayTests: BaseTest
   {
     helperMethods.SetTimeCallComponentMethod();
   }
+
+  [Test, Order(8)]
+  public void TestCallComponentUpdateTime()
+  {
+    helperMethods.CallComponentMethodUpdateTime();
+  }
 }

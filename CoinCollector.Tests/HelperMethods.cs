@@ -9,6 +9,7 @@ public class HelperMethods: BaseTest
         altDriver.LoadScene("GameScene");
     }
     public AltObject GameView { get => altDriver.WaitForObject(By.NAME, "GameView", timeout: 10); }
+    public AltObject GameController { get => altDriver.WaitForObject(By.NAME, "GameController", timeout: 10); }
     public AltObject TimeValueText { get => altDriver.WaitForObject(By.NAME, "TimeValueText"); }
     public AltObject CoinValueText { get => altDriver.WaitForObject(By.NAME,"CoinValueText"); }
     public AltObject Player { get => altDriver.WaitForObject(By.NAME, "Player"); }
@@ -55,6 +56,23 @@ public class HelperMethods: BaseTest
 
         string[] parameters = new[] {"60"};
         TimeValueText.CallComponentMethod<string>("UnityEngine.UI.Text", "set_text", "UnityEngine.UI", parameters);
+        var dataSet = TimeValueText.CallComponentMethod<Int32>("UnityEngine.UI.Text", "get_text", "UnityEngine.UI", new object[] { });
+        Console.WriteLine(dataSet);
+        Thread.Sleep(2000);
+        valueTime = GetCurrentTime();
+        Console.WriteLine("Get time value After: " + valueTime);
+    }
+
+    public void CallComponentMethodUpdateTime()
+    {
+        Assert.NotNull(TimeValueText);
+        Assert.NotNull(GameController);
+        var valueTime = GetCurrentTime();
+        Console.WriteLine("Get time value Before: " + valueTime);
+
+        string[] parameters = new[] {"60"};
+        GameController.CallComponentMethod<string>("GameController", "UpdateTimeValue", "Assembly-CSharp", parameters);
+
         var dataSet = TimeValueText.CallComponentMethod<Int32>("UnityEngine.UI.Text", "get_text", "UnityEngine.UI", new object[] { });
         Console.WriteLine(dataSet);
         Thread.Sleep(2000);
