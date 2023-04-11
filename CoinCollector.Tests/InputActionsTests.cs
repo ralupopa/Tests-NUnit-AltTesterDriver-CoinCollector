@@ -1,6 +1,3 @@
-using NUnit.Allure.Core;
-using NUnit.Allure.Attributes;
-using Allure.Net.Commons;
 
 namespace CoinCollector.Tests;
 
