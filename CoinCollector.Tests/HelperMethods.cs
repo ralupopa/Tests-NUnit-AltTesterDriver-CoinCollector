@@ -63,7 +63,7 @@ public class HelperMethods: BaseTest
         Console.WriteLine("Get time value After: " + valueTime);
     }
 
-    public void CallComponentMethodUpdateTime()
+    public void UpdatePlayTimeWithSetStaticProperty()
     {
         Assert.NotNull(TimeValueText);
         Assert.NotNull(GameController);
@@ -71,7 +71,7 @@ public class HelperMethods: BaseTest
         Console.WriteLine("Get time value Before: " + valueTime);
 
         string[] parameters = new[] {"60"};
-        GameController.CallComponentMethod<string>("GameController", "UpdateTimeValue", "Assembly-CSharp", parameters);
+        altDriver.SetStaticProperty("GameController", "playTime", "Assembly-CSharp", parameters);
 
         var dataSet = TimeValueText.CallComponentMethod<Int32>("UnityEngine.UI.Text", "get_text", "UnityEngine.UI", new object[] { });
         Console.WriteLine(dataSet);

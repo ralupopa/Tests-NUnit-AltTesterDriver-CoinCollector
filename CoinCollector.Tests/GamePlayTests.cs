@@ -85,8 +85,9 @@ public class GamePlayTests: BaseTest
   }
 
   [Test, Order(8)]
+  [Ignore("Ignore until can use 1.8.1 sdk version")]
   public void TestCallComponentUpdateTime()
   {
-    helperMethods.CallComponentMethodUpdateTime();
+    helperMethods.UpdatePlayTimeWithSetStaticProperty();
   }
 }
