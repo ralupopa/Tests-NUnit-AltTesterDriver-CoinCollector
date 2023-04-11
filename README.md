@@ -41,7 +41,7 @@ dotnet test --filter <test_class_name>
 dotnet test --filter <test_class_name>.<test_name>
 ```
 
-# Run tests and generate XML, HTML test reports
+# Run tests and generate HTML test report
 
 ## Using [Allure](https://docs.qameta.io/allure-report/)
 

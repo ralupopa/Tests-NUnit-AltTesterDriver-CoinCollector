@@ -45,13 +45,13 @@ D:\\projects\\alttester\\Tests-NUnit-AltTesterDriver-CoinCollector\\CoinCollecto
 
 See [more examples](https://github.com/allure-framework/allure-csharp/tree/main/Allure.NUnit.Examples) for other attributes
 
-# 7. Execute tests and generate output folder `allure-results`
+# 6. Execute tests and generate output folder `allure-results`
 
 ```
 dotnet test --results-directory allure-results
 ```
 
-# 8. Generate test results report
+# 7. Generate test results report
 
 ```
 allure serve allure-results
