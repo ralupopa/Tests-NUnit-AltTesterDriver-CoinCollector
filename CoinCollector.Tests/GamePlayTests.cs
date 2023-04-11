@@ -1,4 +1,13 @@
+using NUnit.Allure.Core;
+using NUnit.Allure.Attributes;
+using Allure.Net.Commons;
+
 namespace CoinCollector.Tests;
+
+[TestFixture]
+[AllureNUnit]
+[AllureDisplayIgnored]
+[AllureSuite("GamePlay Tests")]
 public class GamePlayTests: BaseTest
 {
   HelperMethods helperMethods;
@@ -18,12 +27,14 @@ public class GamePlayTests: BaseTest
   }
 
   [Test, Order(1)]
+  [AllureSeverity(SeverityLevel.blocker)]
   public void TestGamePlayDisplayedCorrectly()
   {
     Assert.True(helperMethods.IsDisplayed());
   }
 
   [Test, Order(2)]
+  [AllureSeverity(SeverityLevel.blocker)]
   public void TestTimeLeftToPlayIsDisplayed()
   {
     var timeValue = helperMethods.GetCurrentTime();

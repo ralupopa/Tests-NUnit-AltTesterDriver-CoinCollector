@@ -1,4 +1,12 @@
+using NUnit.Allure.Core;
+using NUnit.Allure.Attributes;
+using Allure.Net.Commons;
+
 namespace CoinCollector.Tests;
+
+[TestFixture]
+[AllureNUnit]
+[AllureSuite("Input Actions Tests (using New Input System)")]
 public class InputActionsTests: BaseTest
 {
     HelperMethods helperMethods;

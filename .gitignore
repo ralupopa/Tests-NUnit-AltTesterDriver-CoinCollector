@@ -11,3 +11,7 @@ build/
 [Bb]in/
 [Oo]bj/
 AppCoinCollector/
+
+# Allure Specific
+allure-results
+allure-report

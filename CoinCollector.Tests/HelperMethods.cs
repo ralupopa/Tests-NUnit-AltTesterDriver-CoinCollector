@@ -71,7 +71,7 @@ public class HelperMethods: BaseTest
         Console.WriteLine("Get time value Before: " + valueTime);
 
         string[] parameters = new[] {"60"};
-        altDriver.SetStaticProperty("GameController", "playTime", "Assembly-CSharp", parameters);
+        //altDriver.SetStaticProperty("GameController", "playTime", "Assembly-CSharp", parameters);
 
         var dataSet = TimeValueText.CallComponentMethod<Int32>("UnityEngine.UI.Text", "get_text", "UnityEngine.UI", new object[] { });
         Console.WriteLine(dataSet);
