@@ -17,6 +17,6 @@ jobs:
       
       - name: Run tests from InputActionsTests
         run: |
-          cd CoinCollector.Tests
+          cd .\CoinCollector.Tests\
           cd
           dotnet test --filter=InputActionsTests
