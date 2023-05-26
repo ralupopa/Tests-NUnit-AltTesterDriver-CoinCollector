@@ -17,7 +17,7 @@ jobs:
 
       - name: Open application
         run: |
-          start "AppForWorkflow\CoinCollectorStandalone.exe"
+          start AppForWorkflow/CoinCollectorStandalone.exe
           set ALTSERVER_PORT=13000
           set ALTSERVER_HOST="127.0.0.1"
       
