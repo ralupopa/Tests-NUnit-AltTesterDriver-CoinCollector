@@ -13,9 +13,9 @@ jobs:
         run: |
           start "AppForWorkflow\CoinCollectorStandalone.exe"
           cd CoinCollector.Tests
-          export ALTSERVER_PORT=13000
-          echo $ALTSERVER_PORT
-          export ALTSERVER_HOST="127.0.0.1"
+          set ALTSERVER_PORT=13000
+          echo %ALTSERVER_PORT%
+          set ALTSERVER_HOST="127.0.0.1"
       
       - name: Run tests from InputActionsTests
         run: |
