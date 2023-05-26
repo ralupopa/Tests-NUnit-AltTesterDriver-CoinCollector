@@ -9,8 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-    #  - name: Install AltTester Driver
-    #    run: dotnet add package AltTester-Driver --version 1.8.0
+      - name: Install AltTester Driver
+        run: dotnet add package AltTester-Driver --version 1.8.0
 
       - name: Open application
         run: |
