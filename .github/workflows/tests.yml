@@ -1,0 +1,14 @@
+name: Tests
+
+on: push
+
+jobs:
+  tests:
+    name: Execute Tests
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          start "" "AppForWorkflow\CoinCollectorStandalone.exe"
+          cd CoinCollector.Tests
+          dotnet test --filter=InputActionsTests
