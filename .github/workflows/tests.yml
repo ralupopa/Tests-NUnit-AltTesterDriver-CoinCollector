@@ -8,7 +8,15 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
+
+      - name: Open application
+        run: |
           start "AppForWorkflow\CoinCollectorStandalone.exe"
           cd CoinCollector.Tests
+          export ALTSERVER_PORT=13000
+          echo $ALTSERVER_PORT
+          export ALTSERVER_HOST="127.0.0.1"
+      
+      - name: Run tests from InputActionsTests
+        run: |
           dotnet test --filter=InputActionsTests
