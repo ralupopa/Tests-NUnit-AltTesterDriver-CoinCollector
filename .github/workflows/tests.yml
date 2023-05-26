@@ -9,6 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          start "" "AppForWorkflow\CoinCollectorStandalone.exe"
+          start "AppForWorkflow\CoinCollectorStandalone.exe"
           cd CoinCollector.Tests
           dotnet test --filter=InputActionsTests
