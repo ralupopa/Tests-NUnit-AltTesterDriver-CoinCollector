@@ -12,11 +12,11 @@ jobs:
       - name: Open application
         run: |
           start "AppForWorkflow\CoinCollectorStandalone.exe"
-          cd CoinCollector.Tests
           set ALTSERVER_PORT=13000
-          echo %ALTSERVER_PORT%
           set ALTSERVER_HOST="127.0.0.1"
       
       - name: Run tests from InputActionsTests
         run: |
+          cd CoinCollector.Tests
+          cd
           dotnet test --filter=InputActionsTests
