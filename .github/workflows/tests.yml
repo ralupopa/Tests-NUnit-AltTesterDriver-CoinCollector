@@ -11,7 +11,7 @@ jobs:
 
       - name: Install AltTester Driver
         run: |
-          cd CoinCollector.Tests  
+          cd CoinCollector.Tests
           dotnet add package AltTester-Driver --version 1.8.0
         shell: bash
 
@@ -20,8 +20,10 @@ jobs:
           start AppForWorkflow/CoinCollectorStandalone.exe
           set ALTSERVER_PORT=13000
           set ALTSERVER_HOST="127.0.0.1"
+        shell: bash
       
       - name: Run tests from InputActionsTests
         run: |
+          cd CoinCollector.Tests
           dotnet test --filter=InputActionsTests
         shell: bash
