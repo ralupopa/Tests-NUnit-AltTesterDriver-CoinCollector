@@ -10,7 +10,10 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install AltTester Driver
-        run: dotnet add package AltTester-Driver --version 1.8.0
+        run: |
+          cd CoinCollector.Tests  
+          dotnet add package AltTester-Driver --version 1.8.0
+        shell: bash
 
       - name: Open application
         run: |
