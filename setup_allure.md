@@ -45,13 +45,15 @@ D:\\projects\\alttester\\Tests-NUnit-AltTesterDriver-CoinCollector\\CoinCollecto
 
 See [more examples](https://github.com/allure-framework/allure-csharp/tree/main/Allure.NUnit.Examples) for other attributes
 
-# 6. Execute tests and generate output folder `allure-results`
+# 6. Make sure that all the test classes are part of a namespace (not necessarly the same). Allure needs to find a namespace in order to be able to generate report.
+
+# 7. Execute tests and generate output folder `allure-results`
 
 ```
 dotnet test --results-directory allure-results
 ```
 
-# 7. Generate test results report
+# 8. Generate test results report
 
 ```
 allure serve allure-results
